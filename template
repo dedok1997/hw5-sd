@@ -1,0 +1,42 @@
+Book:
+  name: String
+  author: String
+  ownerId: Int
+
+Order:
+  id: Int
+  books: List[Book]
+
+Backet:
+  user: User
+  books: List[Book]
+
+Wishes:
+  user: User
+  books: List[Book]
+
+LoggableUser:
+  name: String
+  password: String
+
+Client: LoggableUser:
+  
+
+Company: LoggableUser:
+  id: Int
+  
+
+BookDAO:
+
+XMLGenerator:
+  generate(book: List[Book]): XML
+
+Finder:
+  -dao: BoolDao
+
+Review:
+  user: User
+  оценка: Int
+  text: String
+  isOk: Bool
+
