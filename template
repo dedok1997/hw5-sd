@@ -1,3 +1,17 @@
+PaySystemInfo:
+  payUrl: String
+
+WebInterface:
+  register(login: String, password: String, name: String, address: String): Client
+  login(login, password): User
+  addToBucket(User, Book)
+  removeFromBucket(User, Book)
+  payOrder(Order): PaySystemInfo
+  confirmPaying(confitmationToken: String)
+  returnBooks(user: User, books: List[Book])
+  searchBooks(): List[Book]
+  addReview(Review)
+
 Book:
   name: String
   author: String
@@ -5,11 +19,17 @@ Book:
 
 Order:
   id: Int
-  books: List[Book]
-
-Backet:
   user: User
   books: List[Book]
+  isPayed: Bool
+  isSended: Book
+  cancel(): Bool
+
+Bucket:
+  user: User
+  books: List[Book]
+  remove: Book
+  makeOrder(): Order
 
 Wishes:
   user: User
@@ -20,11 +40,13 @@ LoggableUser:
   password: String
 
 Client: LoggableUser:
+  name: String
+  address: String
+  role: Role	
   
 
 Company: LoggableUser:
-  id: Int
-  
+  id: Int  
 
 BookDAO:
 
@@ -32,7 +54,7 @@ XMLGenerator:
   generate(book: List[Book]): XML
 
 Finder:
-  -dao: BoolDao
+  -dao: BookDao
 
 Review:
   user: User
