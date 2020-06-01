@@ -2,15 +2,15 @@ PaySystemInfo:
   payUrl: String
 
 WebInterface:
-  register(login: String, password: String, name: String, address: String): Client
-  login(login, password): User
-  addToBucket(User, Book)
-  removeFromBucket(User, Book)
-  payOrder(Order): PaySystemInfo
-  confirmPaying(confitmationToken: String)
-  returnBooks(user: User, books: List[Book])
-  searchBooks(): List[Book]
-  addReview(Review)
+	  register(login: String, password: String, name: String, address: String): Client
+	  login(login, password): User
+	  addToBucket(User, Book)
+	  removeFromBucket(User, Book)
+	  payOrder(Order): PaySystemInfo
+	  confirmPaying(confitmationToken: String)
+	  returnBooks(user: User, books: List[Book])
+	  searchBooks(): List[Book]
+	  addReview(Review)
 
 Book:
   name: String
